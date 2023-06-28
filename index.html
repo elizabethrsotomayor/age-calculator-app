@@ -17,32 +17,28 @@
       <div class="inputs">
         <div class="input input-day">
           <label class="labels" for="day">Day</label>
-          <input type="text" class="textfield" placeholder="DD"/>
+          <input id="day" type="text" class="textfield" placeholder="DD"/>
         </div>
         
         <div class="input input-month">
           <label class="labels" for="month">Month</label>
-          <input type="text" class="textfield" placeholder="MM"/>
+          <input id="month" type="text" class="textfield" placeholder="MM"/>
         </div>
         
         <div class="input input-year">
           <label class="labels" for="year">Year</label>
-          <input type="text" class="textfield" placeholder="YYYY"/>
+          <input id="year" type="text" class="textfield" placeholder="YYYY"/>
         </div>
       </div>
 
       <div class="divider">
         <hr/>
-        <a class="arrow-link" href="#"><img class="arrow" src="assets/images/icon-arrow.svg"/></a>
+        <a id="calc-btn" class="arrow-link" href="#"><img class="arrow" src="assets/images/icon-arrow.svg"/></a>
       </div>
-      <!-- <div class="hr">
-        <div class="hr-line"></div>
-        <a class="arrow-link" href="#"><img class="arrow" src="assets/images/icon-arrow.svg"/></a>
-      </div>
-         -->
-      <h2>-- years</h2>
-      <h2>-- months</h2>
-      <h2>-- days</h2>
+
+      <em><h2 class="headings"><span class="values years-value">--</span> years</h2></em>
+      <em><h2 class="headings"><span class="values months-value">--</span> months</h2></em>
+      <em><h2 class="headings"><span class="values days-value">--</span> days</h2></em>
     </div>
   </main>
     
@@ -52,5 +48,7 @@
       Coded by <a href="#">Elizabeth Sotomayor</a>.
     </div>
   </footer>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

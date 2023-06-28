@@ -35,12 +35,11 @@
     align-self: center;
     background-color: white;
     border-radius: 2rem 2rem 10rem 2rem;
-    padding: 2rem;
   }
 
   .inputs {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
   }
 
   .labels {
@@ -49,26 +48,26 @@
     color: hsl(0, 1%, 44%);
     font-weight: 700;
     letter-spacing: 0.2rem;
+    margin-bottom: 0.3rem;
   }
 
   .input {
     display: flex;
     flex-direction: column;
-    margin: 0.5rem;
-    border-color: hsl(0, 0%, 86%);
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
   }
 
   .textfield {
-    width: 9rem;
     padding: 0.5rem;
     outline: 0.6px hsl(0, 1%, 44%);
+    font-weight: 700;
   }
 
   .arrow {
     background-color: hsl(259, 100%, 65%);
     border-radius: 100%;
     padding: 0.8rem;
-    /* display: inline; */
   }
 
   .divider {
@@ -81,6 +80,10 @@
     height: 1px;
     border: none;
     background-color: hsl(0, 0%, 86%);
+  }
+
+  .values {
+    color: hsl(259, 100%, 65%);
   }
 
   /* poppins-regular - latin */
@@ -120,6 +123,17 @@
 
       .card {
         width: 60vw;
+        padding: 3rem;
+      }
+
+      .headings {
+        font-size: 6.2rem;
+      }
+
+      .textfield{
+        width: 9rem;
+        height: 4.2rem;
+        font-size: 2.2rem;
       }
   }
 
@@ -130,6 +144,7 @@
   .card {
     width: 90vw;
     flex-grow: 1;
+    padding: 2rem;
   }
 
   .inputs {
@@ -138,6 +153,8 @@
 
   .textfield {
     width: 5rem;
+    height: 4rem;
+    font-size: 1rem;
   }
 
   .divider {
@@ -165,5 +182,10 @@
     bottom: 0;
     width: 100%;
     left: 0;
+  }
+
+  .headings {
+    font-size: 3rem;
+    font-weight: 700;
   }
 }
