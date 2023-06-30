@@ -82,6 +82,10 @@
     background-color: hsl(0, 0%, 86%);
   }
 
+  .headings {
+    font-weight: 800;
+  }
+
   .values {
     color: hsl(259, 100%, 65%);
   }

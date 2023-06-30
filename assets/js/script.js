@@ -7,6 +7,13 @@ const calcBtn = document.getElementById("calc-btn");
 const dayDisp = document.getElementById("days-value");
 const monthsDisp = document.getElementById("months-value");
 const yearsDisp = document.getElementById("years-value");
+const errDay = document.getElementById("error-day");
+const errMonth = document.getElementById("error-month");
+const errYear = document.getElementById("error-year");
+const dayLabel = document.getElementById("day-label");
+const monthLabel = document.getElementById("month-label");
+const yearLabel = document.getElementById("year-label");
+ 
 let day_value, month_value, year_value;
 
 calcBtn.addEventListener("click", retrieveValues);
@@ -15,10 +22,6 @@ function retrieveValues(e) {
     day_value = +day.value;
     month_value = +month.value - 1; // Date objects 0-indexed
     year_value = +year.value;
-
-    console.log(day_value);
-    console.log(month_value);
-    console.log(year_value);
     
     const now = new Date();
     const past = new Date(year_value, month_value, day_value);
@@ -30,14 +33,72 @@ function retrieveValues(e) {
 
 function isValidInput(d,m,y) {
     const i = new Date(y, m, d);
-    const curYear = new Date().getFullYear;
+    const curYear = new Date().getFullYear();
 
-    if (d < 1 || d > 31 || m < 1 || m > 12 || y > curYear) {
-        alert("Please enter a valid date")
-        return false;
+    let res = false;
+
+    if (d === 0 || m === 0 || y > curYear) {
+      if (d === 0) {
+        errDay.textContent = "This field is required";
+        errDay.style.color = "red";
+        errDay.style.fontStyle = "italic";
+        dayLabel.style.color = "red";
+        day.style.border = "1px solid red";
+      }
+
+      if (m === -1) {
+        errMonth.textContent = "This field is required";
+        errMonth.style.color = "red";
+        errMonth.style.fontStyle = "italic";
+        monthLabel.style.color = "red";
+        month.style.border = "1px solid red";
+      }
+
+      if (y === 0) {
+        errYear.textContent = "This field is required";
+        errYear.style.color = "red";
+        errYear.style.fontStyle = "italic";
+        yearLabel.style.color = "red";
+        year.style.border = "1px solid red";
+      }
+
+      if (d < 1 || d > 31) {
+        errDay.textContent = "Must be a valid day";
+        errDay.style.color = "red";
+        errDay.style.fontStyle = "italic";
+        dayLabel.style.color = "red";
+      }
+
+      if (m < 1 || m > 12) {
+        errMonth.textContent = "Must be a valid month";
+        errMonth.style.color = "red";
+        errMonth.style.fontStyle = "italic";
+        monthLabel.style.color = "red";
+        month.style.border = "1px solid red"
+      }
+
+      if (y > curYear) {
+        errYear.textContent = "Year cannot be in the future";
+        errYear.style.color = "red";
+        errYear.style.fontStyle = "italic";
+        yearLabel.style.color = "red";
+        year.style.border = "1px solid red"
+      }
     } else {
-        return true;
+      errDay.textContent = "";
+      errMonth.textContent = "";
+      errYear.textContent = "";
+      dayLabel.style.color = "hsl(0, 1%, 44%)";
+      monthLabel.style.color = "hsl(0, 1%, 44%)";
+      yearLabel.style.color = "hsl(0, 1%, 44%)";
+      day.style.border = "1px solid hsl(0, 1%, 44%)";
+      month.style.border = "1px solid hsl(0, 1%, 44%)";
+      year.style.border = "1px solid hsl(0, 1%, 44%)";
+
+      res = true;
     }
+
+    return res;
 }
 
 function calcTime(startingDate, endingDate) {
