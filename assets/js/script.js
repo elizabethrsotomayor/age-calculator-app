@@ -31,13 +31,22 @@ function retrieveValues(e) {
     }
 }
 
+function isValidDate(year, month, day) {
+  var d = new Date(year, month, day);
+  if (d.getFullYear() == year && d.getMonth() == month && d.getDate() == day) {
+      return true;
+  }
+  return false;
+}
+
 function isValidInput(d,m,y) {
     const i = new Date(y, m, d);
     const curYear = new Date().getFullYear();
 
     let res = false;
+    let validDate = isValidDate(y,m,d);
 
-    if (d === 0 || m === 0 || y > curYear) {
+    if (d === 0 || m === 0 || y > curYear || !validDate) {
       if (d === 0) {
         errDay.textContent = "This field is required";
         errDay.style.color = "red";
@@ -79,6 +88,26 @@ function isValidInput(d,m,y) {
 
       if (y > curYear) {
         errYear.textContent = "Year cannot be in the future";
+        errYear.style.color = "red";
+        errYear.style.fontStyle = "italic";
+        yearLabel.style.color = "red";
+        year.style.border = "1px solid red"
+      }
+
+      if (!validDate) {
+        errDay.textContent = "Must be a valid date";
+        errDay.style.color = "red";
+        errDay.style.fontStyle = "italic";
+        dayLabel.style.color = "red";
+        month.style.border = "1px solid red"
+
+        errMonth.textContent = "Must be a valid date";
+        errMonth.style.color = "red";
+        errMonth.style.fontStyle = "italic";
+        monthLabel.style.color = "red";
+        month.style.border = "1px solid red"
+
+        errYear.textContent = "Must be a valid date";
         errYear.style.color = "red";
         errYear.style.fontStyle = "italic";
         yearLabel.style.color = "red";
