@@ -90,6 +90,10 @@
     border-radius: 0.5rem;
   }
 
+  input {
+    border: 1px solid hsl(0, 1%, 44%);
+  }
+
   input:focus { 
     outline: none !important;
     border-color: hsl(259, 100%, 65%);

@@ -15,6 +15,10 @@ function retrieveValues(e) {
     day_value = +day.value;
     month_value = +month.value - 1; // Date objects 0-indexed
     year_value = +year.value;
+
+    console.log(day_value);
+    console.log(month_value);
+    console.log(year_value);
     
     const now = new Date();
     const past = new Date(year_value, month_value, day_value);
